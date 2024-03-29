@@ -5,7 +5,8 @@ export const getEmployees = async(req,res) =>{
    try {
         //throw new Error('Mi error')
         const [rows] = await pool.query('select * from employee',)
-        res.json(rows) 
+        //res.json(rows) 
+        res.json({ results: rows }); 
    } catch (error) {
         return res.status(500).json({message:'Error en el get'})
    }
@@ -22,7 +23,8 @@ export const getEmployee = async (req,res) =>{
             message:'Empleado no encontrado'
     })
 
-        res.json(rows[0])
+        //res.json(rows[0])
+        res.json({ results: rows[0] });
     //res.send('Obtener empleado por id')    
     } catch (error) {
         return res.status(500).json({message: "Error al obtener empleado"})
