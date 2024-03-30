@@ -24,7 +24,8 @@ export const getEmployee = async (req,res) =>{
     })
 
         //res.json(rows[0])
-        res.json({ results: rows[0] });
+        //res.json({ results: rows[0] });
+        res.json({ results: rows});
     //res.send('Obtener empleado por id')    
     } catch (error) {
         return res.status(500).json({message: "Error al obtener empleado"})
