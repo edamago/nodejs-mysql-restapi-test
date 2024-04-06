@@ -42,8 +42,8 @@ export const createRegistro = async (req,res) => {
             DNI,direccion,email,celular,clave 
         })    
     } catch (error) {
-        //return res.status(500).json({message:"Error al crear registro"})
-        return res.status(500).json({error})
+        return res.status(500).json({message:"Error al crear registro"})
+        //return res.status(500).json({error})
     }
     
 }
