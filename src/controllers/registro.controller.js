@@ -15,7 +15,7 @@ export const getRegistros = async(req,res) =>{
 export const getRegistro = async (req,res) =>{
     try {
         //console.log(req.params.id)
-        const[rows] = await pool.query('select * from registro where id=?',[req.params.id])
+        const[rows] = await pool.query('select * from registro where userId=?',[req.params.id])
 
         if(rows.length<=0) return res.status(404).json({
             message:'Registro no encontrado'
