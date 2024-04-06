@@ -39,7 +39,7 @@ export const createRegistro = async (req,res) => {
         res.send({
             id:rows.insertId,
             nombre,
-            salario 
+            DNI,direccion,email,celular,clave 
         })    
     } catch (error) {
         return res.status(500).json({message:"Error al crear registro"})
