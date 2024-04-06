@@ -70,7 +70,7 @@ export const deleteRegistro = async (req,res) =>{
 export const updateRegistro = async (req,res) => {
     try {
         const {id} =req.params
-        const {nombre,DNI,direccion,email,celular,clave} = req.body
+        const {nombre} = req.body
 
         const [result] = await pool.query('Update registro set nombre = IFNULL(?,nombre) where userId = ?',[nombre,id])
 
