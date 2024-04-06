@@ -72,9 +72,9 @@ export const updateRegistro = async (req,res) => {
         const {id} =req.params
         const {nombre,DNI,direccion,email,celular,clave} = req.body
 
-        const [result] = await pool.query('Update registro set nombre = IFNULL(?,nombre), DNI = IFNULL(?, DNI), direccion = IFNULL(?, direccion), email = IFNULL(?, email), celular = IFNULL(?, celular), clave = IFNULL(?, clave) where userId = ?',[nombre,DNI,direccion,email,celular,clave,id])
+        const [result] = await pool.query('Update registro set nombre = IFNULL(?,nombre) where userId = ?',[nombre,id])
 
-        if(result.affectedRows<=0) return res.status(404).json({message: 'Empleado no encontrado no se pudo nodificar'})
+        if(result.affectedRows<=0) return res.status(404).json({message: 'Registro no encontrado no se pudo nodificar'})
 
         const [rows] = await pool.query('select * from registro where id = ?',[id])
 
