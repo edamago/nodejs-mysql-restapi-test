@@ -34,7 +34,7 @@ export const getRegistro = async (req,res) =>{
 export const createRegistro = async (req,res) => {
     try {
         const {userId,nombre,DNI,direccion,email,celular,clave} =req.body
-        const [rows] = await pool.query('insert into registro(userId,nombre,DNI) values(?,?,?,?,?,?,?)',[userId,nombre,DNI,direccion,email,celular,clave])
+        const [rows] = await pool.query('insert into registro(userId,nombre,DNI,direccion,email,celular,clave) values(?,?,?,?,?,?,?)',[userId,nombre,DNI,direccion,email,celular,clave])
         console.log(req.body)
         res.send({
             userId:rows.userId,
