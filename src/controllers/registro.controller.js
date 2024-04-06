@@ -55,7 +55,7 @@ export const createRegistro = async (req,res) => {
 export const deleteRegistro = async (req,res) =>{
     try {
         //console.log(req.params.id)
-        const[result] = await pool.query('delete from registro where id = ?',[req.params.id])
+        const[result] = await pool.query('delete from registro where userId = ?',[req.params.id])
 
         if(result.affectedRows <= 0) return res.status(404).json({message:'Registro no encontrado para eliminar'})
 
