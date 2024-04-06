@@ -36,13 +36,14 @@ export const createRegistro = async (req,res) => {
         const {nombre,DNI,direccion,email,celular,clave} =req.body
         const [rows] = await pool.query('insert into registro(nombre,DNI,direccion,email,celular,clave) values(?,?,?,?,?,?)',[nombre,DNI,direccion,email,celular,clave])
         console.log(req.body)
-        /*res.send({
+        res.send({
             id:rows.insertId,
             nombre,
             DNI,direccion,email,celular,clave 
-        })*/    
+        })    
     } catch (error) {
-        return res.status(500).json({message:"Error al crear registro"})
+        //return res.status(500).json({message:"Error al crear registro"})
+        return error.message
     }
     
 }
