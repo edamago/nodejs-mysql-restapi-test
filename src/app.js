@@ -1,7 +1,8 @@
 import express  from "express"
 import employeesRoutes from './routes/employees.routes.js'
 import registrosRoutes from './routes/registro.routes.js'
-import seguimientosRoutes from './routes/seguimiento.router.js'
+import seguimientosRoutes from './routes/seguimiento.routes.js'
+import diariosRoutes from './routes/diario.routes.js'
 import indexRoutes from './routes/index.routes.js'
 
 const app=express() 
@@ -14,6 +15,7 @@ app.use(indexRoutes)
 app.use('/api',employeesRoutes)
 app.use('/api',registrosRoutes)
 app.use('/api',seguimientosRoutes)
+app.use('/api',diariosRoutes)
 
 app.use((req,res,next)=>{
     res.status(404).json({message:"Ruta no encontrada"})
