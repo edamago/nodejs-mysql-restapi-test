@@ -72,7 +72,7 @@ export const updateSeguimiento = async (req,res) => {
         const {id} =req.params
         const {fechaCita,ultimaRegla,fpp,semanaGestacion,citaMedica,userId} = req.body
 
-        const [result] = await pool.query('Update Seguimiento set nombre = IFNULL(?,nombre), DNI = IFNULL(?, DNI), direccion = IFNULL(?, direccion), email = IFNULL(?, email), celular = IFNULL(?, celular), clave = IFNULL(?, clave) where userId = ?',[nombre,DNI,direccion,email,celular,clave,id])
+        const [result] = await pool.query('Update Seguimiento set fechaCita = IFNULL(?,fechaCita), ultimaRegla = IFNULL(?, ultimaRegla), fpp = IFNULL(?, fpp), semanaGestacion = IFNULL(?, semanaGestacion), citaMedica = IFNULL(?, citaMedica), userId = IFNULL(?, userId) where id = ?',[fechaCita,ultimaRegla,fpp,semanaGestacion,citaMedica,userId,id])
         
         if(result.affectedRows<=0) return res.status(404).json({message: 'Seguimiento no encontrado no se pudo nodificar'})
 
