@@ -10,7 +10,7 @@ router.get('/registros/:id',getRegistro)
 
 router.post('/registros',createRegistro)
 
-router.put('/registros/:id',updateRegistro)
+router.patch('/registros/:id',updateRegistro)
 
 router.delete('/registros/:id',deleteRegistro)
 
