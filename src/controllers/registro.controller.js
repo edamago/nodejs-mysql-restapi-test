@@ -70,9 +70,9 @@ export const deleteRegistro = async (req,res) =>{
 export const updateRegistro = async (req,res) => {
     try {
         const {id} =req.params
-        const {nombre,DNI} = req.body
+        const {nombre,DNI,direccion} = req.body
 
-        const [result] = await pool.query('Update registro set nombre = IFNULL(?,nombre), DNI = IFNULL(?, DNI) where userId = ?',[nombre,DNI,id])
+        const [result] = await pool.query('Update registro set nombre = IFNULL(?,nombre), DNI = IFNULL(?, DNI), direccion = IFNULL(?, direccion) where userId = ?',[nombre,DNI,direccion,id])
 
         if(result.affectedRows<=0) return res.status(404).json({message: 'Registro no encontrado no se pudo nodificar'})
 
