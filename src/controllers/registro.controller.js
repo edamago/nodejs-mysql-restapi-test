@@ -76,7 +76,7 @@ export const updateRegistro = async (req,res) => {
         
         if(result.affectedRows<=0) return res.status(404).json({message: 'Registro no encontrado no se pudo nodificar'})
 
-        const [rows] = await pool.query('select * from registro where id = ?',[id])
+        const [rows] = await pool.query('select * from registro where userId = ?',[id])
 
         ////return res.json(rows[0])    
         res.json({ results: rows});
