@@ -1,7 +1,6 @@
 import {Router} from 'express'
 import {getRegistros,getRegistro,createRegistro,updateRegistro,deleteRegistro} from '../controllers/registro.controller.js'
 
-
 const router = Router()
 
 router.get('/registros',getRegistros)
