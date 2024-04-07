@@ -52,7 +52,7 @@ export const createDiario = async (req,res) => {
 export const deleteDiario = async (req,res) =>{
     try {
         //console.log(req.params.id)
-        const[result] = await pool.query('delete from diario where id = ?',[req.params.id])
+        const[result] = await pool.query('delete from Diario where id = ?',[req.params.id])
 
         if(result.affectedRows <= 0) return res.status(404).json({message:'Dario no encontrado para eliminar'})
 
