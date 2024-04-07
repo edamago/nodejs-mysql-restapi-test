@@ -81,8 +81,9 @@ export const updateRegistro = async (req,res) => {
         //return res.json(rows[0])    
         res.json({ results: rows});
     } catch (error) {
+        return res.status(500).json({message:"XXXX"})
         //return res.status(500).json({message:"Error al actualizar registro"})
-        return error
+        //return error
     }
     
 }
