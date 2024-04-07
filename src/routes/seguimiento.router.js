@@ -4,15 +4,15 @@ import {getSeguimientos,getSeguimiento,createSeguimiento,deleteSeguimiento,updat
 
 const router = Router()
 
-router.get('/registros',getSeguimientos)
+router.get('/seguimientos',getSeguimientos)
 
-router.get('/registros/:id',getSeguimiento)
+router.get('/seguimientos/:id',getSeguimiento)
 
-router.post('/registros',createSeguimiento)
+router.post('/seguimientos',createSeguimiento)
 
-router.patch('/registros/:id',updateSeguimiento)
+router.patch('/seguimientos/:id',updateSeguimiento)
 
-router.delete('/registros/:id',deleteSeguimiento)
+router.delete('/seguimientos/:id',deleteSeguimiento)
 
 
 export default router
