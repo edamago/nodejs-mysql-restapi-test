@@ -69,11 +69,11 @@ export const updateDiario = async (req,res) => {
         const {id} =req.params
         const {fechaRegistro,sintomas,userId} = req.body
 
-        const [result] = await pool.query('Update registro set fechaRegistro = IFNULL(?,fechaRegistro), sintomas = IFNULL(?, sintomas), userId = IFNULL(?, userId) where id = ?',[fechaRegistro,sintomas,userId,id])
+        const [result] = await pool.query('Update Diario set fechaRegistro = IFNULL(?,fechaRegistro), sintomas = IFNULL(?, sintomas), userId = IFNULL(?, userId) where id = ?',[fechaRegistro,sintomas,userId,id])
         
         if(result.affectedRows<=0) return res.status(404).json({message: 'Registro no encontrado no se pudo nodificar'})
 
-        const [rows] = await pool.query('select * from diario where id = ?',[id])
+        const [rows] = await pool.query('select * from Diario where id = ?',[id])
 
         ////return res.json(rows[0])    
         res.json({ results: rows});
