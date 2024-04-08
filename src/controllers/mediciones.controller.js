@@ -79,9 +79,9 @@ export const updateMedicion = async (req,res) => {
         const {id} =req.params
         const {fecharesgistro,mesEmbarazo,temperatura,peso,altura,IMC,presionArterial,AlturaUterina,FrecCardiaca,MovFetal,edema,centroAtencion,userId} = req.body
 
-        const [result] = await pool.query('Update mediciones set fechaRegistro = IFNULL(?,fechaRegistro), mesEmbarazo = IFNULL(?, mesEmbarazo), temperatura = IFNULL(?, temperatura), peso = IFNULL(?, peso), altura = IFNULL(?, altura), IMC = IFNULL(?, IMC), presionArterial = IFNULL(?, presionArterial), AlturaUterina = IFNULL(?, AlturaUterina), FrecCardiaca = IFNULL(?, FrecCardiaca), MovFetal = IFNULL(?, MovFetal), edema = IFNULL(?, edema), centroAtencion = IFNULL(?, centroAtencion), userId = IFNULL(?, userId) where id = ?',[fecharesgistro,mesEmbarazo,temperatura,peso,altura,IMC,presionArterial,AlturaUterina,FrecCardiaca,MovFetal,edema,centroAtencion,userId,id])
+        //const [result] = await pool.query('Update mediciones set fechaRegistro = IFNULL(?,fechaRegistro), mesEmbarazo = IFNULL(?, mesEmbarazo), temperatura = IFNULL(?, temperatura), peso = IFNULL(?, peso), altura = IFNULL(?, altura), IMC = IFNULL(?, IMC), presionArterial = IFNULL(?, presionArterial), AlturaUterina = IFNULL(?, AlturaUterina), FrecCardiaca = IFNULL(?, FrecCardiaca), MovFetal = IFNULL(?, MovFetal), edema = IFNULL(?, edema), centroAtencion = IFNULL(?, centroAtencion), userId = IFNULL(?, userId) where id = ?',[fecharesgistro,mesEmbarazo,temperatura,peso,altura,IMC,presionArterial,AlturaUterina,FrecCardiaca,MovFetal,edema,centroAtencion,userId,id])
         
-        if(result.affectedRows<=0) return res.status(404).json({message: 'Medición no encontrado no se pudo nodificar'})
+        //if(result.affectedRows<=0) return res.status(404).json({message: 'Medición no encontrado no se pudo nodificar'})
 
         const [rows] = await pool.query('select * from mediciones where id = ?',[id])
 
