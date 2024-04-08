@@ -34,7 +34,7 @@ export const getMedicion = async (req,res) =>{
 export const createMedicion = async (req,res) => {
     try {
         const {fecharesgistro,mesEmbarazo,temperatura,peso,altura,IMC,presionArterial,AlturaUterina,FrecCardiaca,MovFetal,edema,centroAtencion,userId} =req.body
-        const [rows] = await pool.query('insert into mediciones(fecharesgistro,mesEmbarazo,temperatura,peso,altura,IMC,presionArterial,AlturaUterina,FrecCardiaca,MovFetal,edema,centroAtencion,userId) values(?,?,?)',[fecharesgistro,mesEmbarazo,temperatura,peso,altura,IMC,presionArterial,AlturaUterina,FrecCardiaca,MovFetal,edema,centroAtencion,userId])
+        const [rows] = await pool.query('insert into mediciones(fecharesgistro,mesEmbarazo,temperatura,peso,altura,IMC,presionArterial,AlturaUterina,FrecCardiaca,MovFetal,edema,centroAtencion,userId) values(?,?,?,?,?,?,?,?,?,?,?,?,?)',[fecharesgistro,mesEmbarazo,temperatura,peso,altura,IMC,presionArterial,AlturaUterina,FrecCardiaca,MovFetal,edema,centroAtencion,userId])
         console.log(req.body)
         res.send({
             id:rows.id,
