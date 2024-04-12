@@ -4,7 +4,7 @@ export const getCitas = async(req,res) =>{
 
    try {
         //throw new Error('Mi error')
-        const [rows] = await pool.query('select a.id,a.fechaCita,a.especialidad,a.sede,a.medicoId,b.nombre,a.userId,r.nombre  from Cita a join medico b on b.id=a.medicoId join registro r on r.userId=a.userId',)
+        const [rows] = await pool.query('select * from Cita',)
         //res.json(rows) 
         res.json({ results: rows }); 
    } catch (error) {
