@@ -5,7 +5,7 @@ import seguimientosRoutes from './routes/seguimiento.routes.js'
 import diariosRoutes from './routes/diario.routes.js'
 import medicionesRoutes from './routes/mediciones.routes.js'
 import medicosRoutes from './routes/medico.routes.js'
-//import citasRoutes from './routes/cita.routes.js'
+import citasRoutes from './routes/cita.routes.js'
 
 //import indexRoutes from './routes/index.routes.js'
 
