@@ -16,7 +16,7 @@ const app=express()
 app.use(express.json())
 
 //app.use(indexRoutes)
-//app.use('/api',citasRoutes)
+app.use('/api',citasRoutes)
 app.use('/api',employeesRoutes)
 app.use('/api',registrosRoutes)
 app.use('/api',seguimientosRoutes)
