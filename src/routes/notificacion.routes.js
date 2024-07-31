@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import {getNotificaciones,createNotificacion,updateNotificacion,deleteNotificacion,getNotificacion} from '../controllers/notificacion.controller.js'
+import {getNotificaciones,getNotificacionUsuario,createNotificacion,updateNotificacion,deleteNotificacion,getNotificacion} from '../controllers/notificacion.controller.js'
 //ruta notificacions
 
 const router = Router()
@@ -7,6 +7,8 @@ const router = Router()
 router.get('/notificaciones',getNotificaciones)
 
 router.get('/notificaciones/:id',getNotificacion)
+
+router.get('/notificaciones/usuario/:id',getNotificacion)
 
 router.post('/notificaciones',createNotificacion)
 

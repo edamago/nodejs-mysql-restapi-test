@@ -33,6 +33,25 @@ export const getNotificacion = async (req,res) =>{
     
 }
 
+export const getNotificacionUsuario = async (req,res) =>{
+    try {
+        //console.log(req.params.id)
+        const[rows] = await pool.query('select * from t_notificaciones where T_USUARIO_ID=?',[req.params.id])
+
+        if(rows.length<=0) return res.status(404).json({
+            message:'Notificacion no encontrada'
+    })
+
+        //res.json(rows[0])
+        //res.json({ results: rows[0] });
+        res.json({ results: rows});
+    //res.send('Obtener empleado por id')    
+    } catch (error) {
+        return res.status(500).json({message: "Error al obtener notificacion"})
+    }
+    
+}
+
 export const createNotificacion = async (req,res) => {
     try {
         const {descripcion,estado,visto,t_usuario_id} =req.body
