@@ -6,6 +6,7 @@ import diariosRoutes from './routes/diario.routes.js'
 import medicionesRoutes from './routes/mediciones.routes.js'
 import medicosRoutes from './routes/medico.routes.js'
 import citasRoutes from './routes/cita.routes.js'
+import notificacionesroutes from './routes/notificacion.routes.js'
 
 //import indexRoutes from './routes/index.routes.js'
 
@@ -23,7 +24,7 @@ app.use('/api',seguimientosRoutes)
 app.use('/api',diariosRoutes)
 app.use('/api',medicionesRoutes)
 app.use('/api',medicosRoutes)
-
+app.use('/api',notificacionesroutes)
 
 
 app.use((req,res,next)=>{
