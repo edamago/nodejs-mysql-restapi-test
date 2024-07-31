@@ -8,7 +8,7 @@ router.get('/notificaciones',getNotificaciones)
 
 router.get('/notificaciones/:id',getNotificacion)
 
-router.get('/notificaciones/usuario/:id',getNotificacion)
+router.get('/notificaciones/usuario/:id',getNotificacionUsuario)
 
 router.post('/notificaciones',createNotificacion)
 
