@@ -1,6 +1,6 @@
 import {Router} from 'express'
 import {getNotificaciones,createNotificacion,updateNotificacion,deleteNotificacion,getNotificacion} from '../controllers/notificacion.controller.js'
-
+//ruta notificacions
 
 const router = Router()
 
