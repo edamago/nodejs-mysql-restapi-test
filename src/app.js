@@ -9,6 +9,8 @@ import citasRoutes from './routes/cita.routes.js'
 import notificacionesroutes from './routes/notificacion.routes.js'
 import recordatoriosroutes from './routes/recordatorio.router.js'
 import preguntasroutes from './routes/pregunta.routes.js'
+import comentariosroute from './routes/comentario.routes.js'
+
 //import indexRoutes from './routes/index.routes.js'
 
 const app=express() 
@@ -28,6 +30,7 @@ app.use('/api',medicosRoutes)
 app.use('/api',notificacionesroutes)
 app.use('/api',recordatoriosroutes)
 app.use('/api',preguntasroutes)
+app.use('/api',comentariosroute)
 
 app.use((req,res,next)=>{
     res.status(404).json({message:"Ruta no encontrada"})
