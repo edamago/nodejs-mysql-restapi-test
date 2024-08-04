@@ -4,7 +4,7 @@ export const getActualizaciones = async(req,res) =>{
 
    try {
         //throw new Error('Mi error')
-        const [rows] = await pool.query('select * from t_actualizaciones',)
+        const [rows] = await pool.query('select * from t_actualizaciones ORDER BY fecha',)
         //res.json(rows) 
         res.json({ results: rows }); 
    } catch (error) {
@@ -36,7 +36,7 @@ export const getActualizacion = async (req,res) =>{
 export const getActualizacionUsuario = async (req,res) =>{
     try {
         //console.log(req.params.id)
-        const[rows] = await pool.query('select * from t_actualizaciones where T_USUARIO_ID=?',[req.params.id])
+        const[rows] = await pool.query('select * from t_actualizaciones where T_USUARIO_ID=? ORDER BY fecha',[req.params.id])
 
         if(rows.length<=0) return res.status(404).json({
             message:'Actualización no encontrada'
