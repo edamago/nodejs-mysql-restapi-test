@@ -6,7 +6,7 @@ export const getEmployees = async(req,res) =>{
         //throw new Error('Mi error')
         const [rows] = await pool.query('select * from employee',)
         //res.json(rows) 
-        res.json({ results: rows }); 
+        res.json({ rows }); 
    } catch (error) {
         return res.status(500).json({message:'Error en el get'})
    }
