@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import {getPosiciones,getPosicionesPedido} from '../controllers/detalle_pedido.controller.js'
+import {getPosiciones,getPosicionesPedido,getPosicionesCliente} from '../controllers/detalle_pedido.controller.js'
 //ruta notificacions
 
 const router = Router()
@@ -10,6 +10,7 @@ router.get('/posiciones',getPosiciones)
 
 router.get('/posiciones/pedido/:id',getPosicionesPedido)
 
+router.get('/posiciones/cliente/:id',getPosicionesCliente)
 //router.post('/preguntas',createPregunta)
 
 //router.put('/preguntas/:id',updatePregunta)
