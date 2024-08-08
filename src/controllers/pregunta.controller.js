@@ -6,7 +6,7 @@ export const getPreguntas = async(req,res) =>{
         //throw new Error('Mi error')
         const [rows] = await pool.query('select * from t_pregunta',)
         //res.json(rows) 
-        res.json({ results: rows }); 
+        res.json(rows ); 
    } catch (error) {
         return res.status(500).json({message:'Error en el get'})
    }
@@ -25,7 +25,7 @@ export const getPregunta = async (req,res) =>{
 
         //res.json(rows[0])
         //res.json({ results: rows[0] });
-        res.json({ results: rows});
+        res.json(rows);
     //res.send('Obtener empleado por id')    
     } catch (error) {
         return res.status(500).json({message: "Error al obtener pregunta"})
@@ -44,7 +44,7 @@ export const getPreguntaUsuario = async (req,res) =>{
 
         //res.json(rows[0])
         //res.json({ results: rows[0] });
-        res.json({ results: rows});
+        res.json(rows);
     //res.send('Obtener empleado por id')    
     } catch (error) {
         return res.status(500).json({message: "Error al obtener pregunta"})
