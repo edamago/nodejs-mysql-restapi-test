@@ -4,7 +4,7 @@ export const getPosiciones = async(req,res) =>{
 
    try {
         //throw new Error('Mi error')
-        const [rows] = await pool.query('select a.*, b.atencion from t_detalle_pedido a join t_pedido b on a.t_pedido_id=b.id',)
+        const [rows] = await pool.query('select a.*, b.atencion,c.descripcion from t_detalle_pedido a join t_pedido b on b.id=a.t_pedido_id join t_producto c on c.id=a.t_producto_id',)
         //res.json(rows) 
         res.json(rows ); 
    } catch (error) {
