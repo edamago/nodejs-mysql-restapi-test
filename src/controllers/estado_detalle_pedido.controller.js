@@ -3,7 +3,7 @@ import {pool} from '../db.js'
 export const getEstadosPosicionPedido = async (req,res) =>{
     try {
         //console.log(req.params.id)
-        const[rows] = await pool.query('select * from t_estado_pedido where t_detalle_pedido_id=?',[req.params.id])
+        const[rows] = await pool.query('select b.orden, b.descripcion, a.* from t_estado_pedido a join t_estado b on b.id=a.t_estado_id where t_detalle_pedido_id=? order by b.orden',[req.params.id])
 
         if(rows.length<=0) return res.status(404).json({
             message:'Detalle de posición no encontrada'
