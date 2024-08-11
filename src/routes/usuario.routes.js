@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import {getUsuarios,getUsuario,createUsuario,updateUsuario,deleteUsuario} from '../controllers/usuario.controller.js'
+import {getUsuarios,getUsuario,getUsuarioPorCorreo,createUsuario,updateUsuario,deleteUsuario} from '../controllers/usuario.controller.js'
 //ruta notificacions
 
 const router = Router()
@@ -7,6 +7,8 @@ const router = Router()
 router.get('/usuarios',getUsuarios)
 
 router.get('/usuarios/:id',getUsuario)
+
+router.get('/usuarios/correo/:id',getUsuarioPorCorreo)
 
 router.post('/usuarios',createUsuario)
 
