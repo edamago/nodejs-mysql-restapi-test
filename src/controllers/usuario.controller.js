@@ -105,7 +105,7 @@ export const updateUsuario = async (req,res) => {
         const [rows] = await pool.query('select * from t_usuario where id = ?',[id])
 
         //return res.json(rows[0])    
-        res.json({ results: rows});
+        res.json(rows);
     } catch (error) {
         //return res.status(500).json({message:"Error al actualizar usuario"})
         return res.status(500).json({message:error.message})
