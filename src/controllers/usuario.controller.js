@@ -55,8 +55,8 @@ export const getUsuarioPorCorreo = async (req,res) =>{
 
 export const createUsuario = async (req,res) => {
     try {
-        const {nombre,correo,estado,password,activo,nomusuario,dni,ap_paterno,ap_materno,direccion,celular} =req.body
-        const [rows] = await pool.query('insert into t_usuario(nombre,correo,estado,password,activo,nomusuario) values(?,?,?,?,?,?,?,?,?,?,?)',[nombre,correo,estado,password,activo,nomusuario,dni,ap_paterno ,ap_materno,direccion,celular])
+        const {nombre,correo,estado,password,activo,nomusuario,dni,ap_paterno,ap_materno,direccion,celular}=req.body
+        const [rows] = await pool.query('insert into t_usuario(nombre,correo,estado,password,activo,nomusuario,dni,ap_paterno,ap_materno,direccion,celular) values(?,?,?,?,?,?,?,?,?,?,?)',[nombre,correo,estado,password,activo,nomusuario,dni,ap_paterno ,ap_materno,direccion,celular])
         console.log(req.body)
         res.send({
             id:rows.insertId,
