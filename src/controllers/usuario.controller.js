@@ -96,9 +96,9 @@ export const deleteUsuario = async (req,res) =>{
 export const updateUsuario = async (req,res) => {
     try {
         const {id} =req.params
-        const {nombre,correo,estado,password,activo,nomusuario} = req.body
+        const {nombre,correo,estado,password,activo,nomusuario,dni,ap_paterno,ap_materno,direccion,celular} = req.body
 
-        const [result] = await pool.query('Update t_usuario set nombre = IFNULL(?,nombre), correo = IFNULL(?,correo), estado = IFNULL(?, estado), password = IFNULL(?, password) , activo = IFNULL(?, activo), nomusuario = IFNULL(?, nomusuario) where id = ?',[nombre,correo,estado,password,activo,nomusuario])
+        const [result] = await pool.query('Update t_usuario set nombre = IFNULL(?,nombre), correo = IFNULL(?,correo), estado = IFNULL(?, estado), password = IFNULL(?, password) , activo = IFNULL(?, activo), nomusuario = IFNULL(?, nomusuario), dni = IFNULL(?, dni), ap_paterno = IFNULL(?, ap_paterno), ap_materno = IFNULL(?, ap_materno), direccion = IFNULL(?, direccion), celular = IFNULL(?, celular) where id = ?',[nombre,correo,estado,password,activo,nomusuario,dni,ap_paterno,ap_materno,direccion,celular])
 
         if(result.affectedRows<=0) return res.status(404).json({message: 'Usuario no encontrado no se pudo nodificar'})
 
