@@ -57,6 +57,7 @@ export const createUsuario = async (req,res) => {
     try {
         const {nombre,correo,estado,password,activo,nomusuario,dni,ap_paterno,ap_materno,direccion,celular}=req.body
         const [rows] = await pool.query('insert into t_usuario(nombre,correo,estado,password,activo,nomusuario,dni,ap_paterno,ap_materno,direccion,celular) values(?,?,?,?,?,?,?,?,?,?,?)',[nombre,correo,estado,password,activo,nomusuario,dni,ap_paterno ,ap_materno,direccion,celular])
+        await pool.query('insert into usuario_rol(idusuario, idrol) values(?,?)',[rows.insertId,1]) 
         console.log(req.body)
         res.send({
             id:rows.insertId,
