@@ -74,12 +74,14 @@ export const getNotificacionUsuarioHistorial = async (req,res) =>{
 export const createNotificacion = async (req,res) => {
     try {
         const {descripcion,estado,visto,t_usuario_id} =req.body
-        const [rows] = await pool.query('insert into t_notificaciones(descripcion,estado,visto,t_usuario_id) values(?,?)',[descripcion, estado,visto,t_usuario_id])
+        const [rows] = await pool.query('insert into t_notificaciones(descripcion,estado,visto,t_usuario_id) values(?,?,?,?)',[descripcion,estado,visto,t_usuario_id])
         console.log(req.body)
         res.send({
             id:rows.insertId,
-            nombre,
-            salario 
+            descripcion,
+            estado,
+            visto,
+            t_usuario_id
         })    
     } catch (error) {
         return res.status(500).json({message:"Error al crear notificacion"})
@@ -107,7 +109,7 @@ export const updateNotificacion = async (req,res) => {
         const {id} =req.params
         const {descripcion,estado,visto,t_usuario_id} = req.body
 
-        const [result] = await pool.query('Update t_notificaciones set descripcion = IFNULL(?,descripcion), estado = IFNULL(?, estado), visto = IFNULL(?, visto), t_usuario_id = IFNULL(?, t_usuario_id) where id = ?',[descripcion,estado,visto,t_usuario_id])
+        const [result] = await pool.query('Update t_notificaciones set descripcion = IFNULL(?,descripcion), estado = IFNULL(?, estado), visto = IFNULL(?, visto), t_usuario_id = IFNULL(?, t_usuario_id) where id = ?',[descripcion,estado,visto,t_usuario_id,id])
 
         if(result.affectedRows<=0) return res.status(404).json({message: 'Notificacion no encontrado no se pudo nodificar'})
 
