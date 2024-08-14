@@ -1,10 +1,10 @@
 import {Router} from 'express'
-import {getPedidosCliente} from '../controllers/pedido.controller.js'
+import {getPedidos, getPedidosCliente} from '../controllers/pedido.controller.js'
 //ruta notificacions
 
 const router = Router()
 
-//router.get('/posiciones',getPosiciones)
+router.get('/pedidos',getPedidos)
 
 //router.get('/preguntas/:id',getPregunta)
 
