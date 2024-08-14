@@ -14,6 +14,7 @@ import actualizacionesroute from './routes/actualizaciones.routes.js'
 import usuariosroute from './routes/usuario.routes.js'
 import posicionesroute from './routes/detalle_pedido.routes.js'
 import estadosposicionesroute from './routes/estado_detalle_pedido.routes.js'
+import pedidosroute from './routes/pedido.routes.js'
 
 //import indexRoutes from './routes/index.routes.js'
 
@@ -39,6 +40,7 @@ app.use('/api',actualizacionesroute)
 app.use('/api',usuariosroute)
 app.use('/api',posicionesroute)
 app.use('/api',estadosposicionesroute)
+app.use('/api',pedidosroute)
 
 app.use((req,res,next)=>{
     res.status(404).json({message:"Ruta no encontrada"})
