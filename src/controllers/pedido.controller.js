@@ -4,7 +4,7 @@ import {pool} from '../db.js'
 export const getPedidos = async (req,res) =>{
     try {
         //console.log(req.params.id)
-        const[rows] = await pool.query('select * from t_pedido where t_cliente_id=?',)
+        const[rows] = await pool.query('select * from t_pedido',)
 
         if(rows.length<=0) return res.status(404).json({
             message:'Pedidos no encontradas'
