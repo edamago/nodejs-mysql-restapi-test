@@ -127,9 +127,9 @@ export const updateUsuarioPorCorreo = async (req,res) => {
         //const [result] = await pool.query('Update t_usuario set nombre = IFNULL(?,nombre), correo = IFNULL(?,correo), estado = IFNULL(?, estado) where id = ?',[nombre,correo,estado])
         if(result.affectedRows<=0) return res.status(404).json({message: 'Usuario no encontrado no se pudo nodificar'})
 
-        console.log("ID:", req.params.correo);
-        console.log("Datos recibidos:", req.body);
-        console.log("Filas afectadas:", result.affectedRows);    
+        //console.log("ID:", req.params.correo);
+        //console.log("Datos recibidos:", req.body);
+        //console.log("Filas afectadas:", result.affectedRows);    
         
         const [rows] = await pool.query('select * from t_usuario where correo = ?',[correo])
 
