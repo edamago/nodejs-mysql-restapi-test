@@ -82,7 +82,8 @@ export const createNotificacion = async (req,res) => {
             estado,
             visto,
             t_usuario_id
-        })    
+        }) 
+           
     } catch (error) {
         return res.status(500).json({message:"Error al crear notificacion"})
     }
