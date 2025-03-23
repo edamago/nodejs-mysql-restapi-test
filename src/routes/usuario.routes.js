@@ -14,7 +14,7 @@ router.post('/usuarios',createUsuario)
 
 router.put('/usuarios/:id',updateUsuario)
 
-router.put('/usuarios/:id',updateUsuarioPorCorreo)
+router.put('/usuariosporcorreo/:id',updateUsuarioPorCorreo)
 
 router.delete('/usuarios/:id',deleteUsuario)
 
