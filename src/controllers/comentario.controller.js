@@ -59,8 +59,12 @@ export const createComentario = async (req,res) => {
         console.log(req.body)
         res.send({
             id:rows.insertId,
-            nombre,
-            salario 
+            descripcion,
+            fecha,
+            estado,
+            activo,
+            califica,
+            t_usuario_id 
         })    
     } catch (error) {
         return res.status(500).json({message:"Error al crear comentario"})
