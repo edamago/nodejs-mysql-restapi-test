@@ -2,16 +2,14 @@ import {pool} from '../db.js'
 
 export const getUsuarios = async(req,res) =>{
 
-   try {
+    try {
         //throw new Error('Mi error')
         const [rows] = await pool.query('select * from t_usuario',)
         //res.json(rows) 
         res.json(rows ); 
-   } catch (error) {
+    } catch (error) {
         return res.status(500).json({message:'Error en el get'})
-   }
-
-   
+    }
 }
 
 export const getUsuario = async (req,res) =>{
