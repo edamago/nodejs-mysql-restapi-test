@@ -133,7 +133,7 @@ export const updateUsuarioPorCorreo = async (req,res) => {
         console.log("Datos recibidos:", req.body);
         console.log("Filas afectadas:", result.affectedRows);    
         
-        const [rows] = await pool.query('select * from t_usuario where id = ?',[id])
+        const [rows] = await pool.query('select * from t_usuario where correo = ?',[correo])
 
         //return res.json(rows[0])    
         res.json(rows);
