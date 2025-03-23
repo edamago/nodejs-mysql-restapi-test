@@ -55,7 +55,7 @@ export const getComentarioUsuario = async (req,res) =>{
 export const createComentario = async (req,res) => {
     try {
         const {descripcion,fecha,estado,activo,califica,t_usuario_id} =req.body
-        const [rows] = await pool.query('insert into t_comentario(descripcion,fecha,estado,activo,califica,t_usuario_id) values(?,?)',[descripcion,fecha,estado,activo,califica,t_usuario_id])
+        const [rows] = await pool.query('insert into t_comentario(descripcion,fecha,estado,activo,califica,t_usuario_id) values(?,?,?,?,?,?)',[descripcion,fecha,estado,activo,califica,t_usuario_id])
         console.log(req.body)
         res.send({
             id:rows.insertId,
