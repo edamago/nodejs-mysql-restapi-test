@@ -123,3 +123,22 @@ export const updateNotificacion = async (req,res) => {
     }
     
 }
+
+export const updateNotificacionVisto = async (req,res) => {
+    try {
+        const {id} =req.params
+        const {visto} = req.body
+
+        const [result] = await pool.query('Update t_notificaciones set visto = IFNULL(?, visto) where id = ?',[visto,id])
+
+        if(result.affectedRows<=0) return res.status(404).json({message: 'Notificacion no encontrado no se pudo nodificar'})
+
+        const [rows] = await pool.query('select * from t_notificaciones where id = ?',[id])
+
+        //return res.json(rows[0])    
+        res.json({ results: rows});
+    } catch (error) {
+        return res.status(500).json({message:"Error al actualizar notificacion"})
+    }
+    
+}
